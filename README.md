@@ -19,7 +19,7 @@
 
 ## Rotas da API:
 
-GET /api/v1/accounts/
+GET /api/v1/accounts
   -> Lista todas as contas
 
 GET /api/v1/accounts/{id}
