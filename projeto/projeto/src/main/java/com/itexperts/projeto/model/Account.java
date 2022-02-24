@@ -26,7 +26,6 @@ public class Account {
     @Column(name = "digit_verification")
     private String verificationDigit;
 
-
     //private List<Card> cards;
 
 }
