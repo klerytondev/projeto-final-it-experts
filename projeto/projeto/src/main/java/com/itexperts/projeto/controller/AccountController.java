@@ -2,6 +2,7 @@ package com.itexperts.projeto.controller;
 
 import com.itexperts.projeto.model.Account;
 import com.itexperts.projeto.repository.AccountRepository;
+import com.itexperts.projeto.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -14,13 +15,16 @@ import java.util.Optional;
 public class AccountController {
 
     @Autowired
+    private AccountService accountService;
+
+    @Autowired
     private AccountRepository accountRepository;
 
     @PostMapping
     @ResponseStatus(value = HttpStatus.CREATED)
     public Account createAccount(@RequestBody Account account) {
         System.out.println("Criando uma conta");
-        return accountRepository.save(account);
+        return accountService.create(account);
     }
 
     @GetMapping("/{id}")
@@ -38,30 +42,13 @@ public class AccountController {
     }
 
     @DeleteMapping("/{id}")
-    @ResponseStatus(value = HttpStatus.)
+    @ResponseStatus(value = HttpStatus.OK)
     public void deleteOneAccountById(@PathVariable Integer id) {
         System.out.println("Deletando uma única conta por id");
         accountRepository.deleteById(id);
     }
 
     //TODO criar método de update
-
-    //TODO exemplo com lista criada aqui na controller sem uso do repository
-
-//    @GetMapping
-//    public String listAccountsTest() {
-//        return "Hello World";
-//    }
-//
-//    @GetMapping("/{id}")
-//    public String getAccountByIdPathVariableTest(@PathVariable Integer id) {
-//        return "Hello World by id: " + id;
-//    }
-//
-//    @GetMapping("/filter")
-//    public String getAccountByIdPathParamTest(@RequestParam Integer id) {
-//        return "Hello World by id: " + id;
-//    }
 
 
 
