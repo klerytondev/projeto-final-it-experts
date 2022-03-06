@@ -37,7 +37,7 @@ public class Card implements Serializable {
     @Column(name = "digit_code")
     private String digitCode;
 
-    @Column(name = "limite_balance")
+    @Column(name = "limit_balance")
     private Double limitBalance;
 
     @ManyToOne(fetch = FetchType.LAZY)
