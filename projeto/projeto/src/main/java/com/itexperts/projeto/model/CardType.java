@@ -10,7 +10,7 @@ import java.io.Serializable;
 @Table(name = "type")
 @Data
 @NoArgsConstructor
-public class Type implements Serializable {
+public class TypeCard implements Serializable {
 
     private static final Long serialVersionUID = 1L;
 
@@ -19,7 +19,7 @@ public class Type implements Serializable {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "name")
-    private String typeName;
+    @Column(name = "name", unique = true)
+    private String name;
 
 }

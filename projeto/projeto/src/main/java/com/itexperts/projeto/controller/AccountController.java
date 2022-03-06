@@ -5,6 +5,7 @@ import com.itexperts.projeto.repository.AccountRepository;
 import com.itexperts.projeto.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,11 +23,12 @@ public class AccountController {
 
     @PostMapping
     @ResponseStatus(value = HttpStatus.CREATED)
-    public Account createAccount(@RequestBody Account account) {
-        System.out.println("Criando uma conta");
-        return accountService.create(account);
+    public ResponseEntity<Account> createAccount(@RequestBody Account account) {
+        Account accountReturned = accountService.create(account);
+        return ResponseEntity.status(HttpStatus.CREATED).body(accountReturned);
     }
 
+    //TODO tirar chamada direta do repository da controller e chamar service de account
     @GetMapping("/{id}")
     @ResponseStatus(value = HttpStatus.OK)
     public Optional<Account> getOneAccountById(@PathVariable Integer id) {
