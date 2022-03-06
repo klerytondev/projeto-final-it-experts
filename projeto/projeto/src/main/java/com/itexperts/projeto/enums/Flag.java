@@ -1,4 +1,4 @@
-package com.itexperts.projeto.model;
+package com.itexperts.projeto.enums;
 
 public enum Flag {
 
