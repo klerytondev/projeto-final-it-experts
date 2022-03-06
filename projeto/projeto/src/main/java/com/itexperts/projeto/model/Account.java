@@ -39,6 +39,8 @@ public class Account implements Serializable {
     @Column(name = "register_id")
     private String registerId;
 
+    //TODO indicar que nao pdoe deletar conta quando tiver cartao associado - Account
+    //TODO deixar somente esse relacionamento + join column
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
     private List<Card> cards;
 

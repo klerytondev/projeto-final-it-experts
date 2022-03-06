@@ -19,6 +19,7 @@ public class CardTypeController {
     @Autowired
     private CardTypeService cardTypeService;
 
+    //TODO fazer controller de CardType funcionar, pois quero ser capaz de inserir novos tipos de cartão via API
     @PostMapping
     public ResponseEntity<CardType> create(CardType cardType) {
         CardType cardTypeReturned = cardTypeService.create(cardType);

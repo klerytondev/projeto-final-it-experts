@@ -1,5 +1,6 @@
 package com.itexperts.projeto.model;
 
+import com.itexperts.projeto.enums.CardTypeEnum;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -20,6 +21,7 @@ public class CardType implements Serializable {
     private Integer id;
 
     @Column(name = "name", unique = true)
-    private String name;
+    @Enumerated(EnumType.STRING)
+    private CardTypeEnum name;
 
 }

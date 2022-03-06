@@ -22,7 +22,6 @@ public class AccountController {
     private AccountRepository accountRepository;
 
     @PostMapping
-    @ResponseStatus(value = HttpStatus.CREATED)
     public ResponseEntity<Account> createAccount(@RequestBody Account account) {
         Account accountReturned = accountService.create(account);
         return ResponseEntity.status(HttpStatus.CREATED).body(accountReturned);
@@ -43,6 +42,7 @@ public class AccountController {
         return accountRepository.findAll();
     }
 
+    //TODO indicar que nao pdoe deletar conta quando tiver cartao associado - Controller
     @DeleteMapping("/{id}")
     @ResponseStatus(value = HttpStatus.OK)
     public void deleteOneAccountById(@PathVariable Integer id) {
