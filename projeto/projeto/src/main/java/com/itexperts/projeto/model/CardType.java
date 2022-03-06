@@ -10,7 +10,7 @@ import java.io.Serializable;
 @Table(name = "type")
 @Data
 @NoArgsConstructor
-public class TypeCard implements Serializable {
+public class CardType implements Serializable {
 
     private static final Long serialVersionUID = 1L;
 

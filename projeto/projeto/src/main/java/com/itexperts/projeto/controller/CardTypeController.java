@@ -1,7 +1,7 @@
 package com.itexperts.projeto.controller;
 
-import com.itexperts.projeto.model.TypeCard;
-import com.itexperts.projeto.service.TypeCardService;
+import com.itexperts.projeto.model.CardType;
+import com.itexperts.projeto.service.CardTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,21 +14,21 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/card_types")
-public class TypeCardController {
+public class CardTypeController {
 
     @Autowired
-    private TypeCardService typeCardService;
+    private CardTypeService cardTypeService;
 
     @PostMapping
-    public ResponseEntity<TypeCard> create(TypeCard typeCard) {
-        TypeCard typeCardReturned = typeCardService.create(typeCard);
-        return ResponseEntity.status(HttpStatus.CREATED).body(typeCardReturned);
+    public ResponseEntity<CardType> create(CardType cardType) {
+        CardType cardTypeReturned = cardTypeService.create(cardType);
+        return ResponseEntity.status(HttpStatus.CREATED).body(cardTypeReturned);
     }
 
     @GetMapping
-    public ResponseEntity<List<TypeCard>> getAll() {
-        List<TypeCard> typeCardsReturned = typeCardService.getAll();
-        return ResponseEntity.ok().body(typeCardsReturned);
+    public ResponseEntity<List<CardType>> getAll() {
+        List<CardType> cardTypesReturned = cardTypeService.getAll();
+        return ResponseEntity.ok().body(cardTypesReturned);
     }
 
 }
