@@ -29,7 +29,8 @@ public class Card implements Serializable {
     private Flag flag;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "card_type_id", referencedColumnName = "id", unique = true, foreignKey = @ForeignKey(name = "fk_card_type"))
+    @JoinColumn(unique = true, foreignKey = @ForeignKey(name = "fk_card_type"))
+    //@JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private CardType cardType;
 
     //TODO deixar numero unico
@@ -42,6 +43,8 @@ public class Card implements Serializable {
     @Column(name = "limit_balance")
     private Double limitBalance;
 
+    //TODO problema quando adiciona response DTO retorna infinito
+    //TODO problema de bidirecional, talvez não tenha necessidade de ter objeto de account
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "account_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk_card_account"))
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
