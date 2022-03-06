@@ -35,6 +35,10 @@ public class Account implements Serializable {
     @Column(name = "digit_verification")
     private String verificationDigit;
 
+    //TODO deve ser unico, tipo CPF
+    @Column(name = "register_id")
+    private String registerId;
+
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
     private List<Card> cards;
 

@@ -1,6 +1,7 @@
 package com.itexperts.projeto.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.itexperts.projeto.enums.Flag;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -27,10 +28,11 @@ public class Card implements Serializable {
     @Enumerated(EnumType.STRING)
     private Flag flag;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "type_card_id", referencedColumnName = "id", unique = true, foreignKey = @ForeignKey(name = "fk_card_type"))
-    private Type typeCard;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "card_type_id", referencedColumnName = "id", unique = true, foreignKey = @ForeignKey(name = "fk_card_type"))
+    private CardType cardType;
 
+    //TODO deixar numero unico
     @Column(name = "number")
     private String number;
 
